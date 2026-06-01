@@ -7,9 +7,9 @@ const routes = require('./routes/routes');
 dotenv.config();
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use('/api/expenses', routes);
-app.use(cors());
 
 mongoose.connect(process.env.MONGODB_URI)
 .then(() => {
