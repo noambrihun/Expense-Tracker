@@ -1,12 +1,25 @@
 import './index.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import AddExpensive from './pages/AddExpensive';  
+import AllExpensives from './pages/AllExpensives';
 
 function App() {
 
   return (
-    <div>
-      <h1 className='text-blue-500 font-bold  text-xl text-pretty'>hello react</h1>
-    </div>
-  )
+    <BrowserRouter>
+      <div className='flex min-h-screen bg-slate-100 text-white'>
+        <Sidebar />
+        <main className='flex-1 main auto'>
+          <div className='mx-auto max-w-7xl px-6 py-8 lg:px-10'>
+            <Routes>
+                <Route path='/' element={<AllExpensives />} />
+              <Route path='/add-expensive' element={<AddExpensive />} />
+            </Routes>
+          </div>
+        </main>
+      </div>
+    </BrowserRouter>
+  );
 }
-
-export default App
+export default App;
